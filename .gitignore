@@ -1,0 +1,50 @@
+# Python & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+.python-version
+
+# Pre-Production, Test Scripts & Sockets
+Pre-production Code/
+test_*.py
+*.sock
+
+# Local / Private Development Folders
+Esp32-code/
+Esp32 Code/
+
+# Godot Engine Cache & Export Binaries (>100MB GitHub Limit)
+.godot/
+.import/
+*.tmp
+rehabv2/
+*.exe
+*.zip
+
+# Database & Persistent Storage
+*.db
+*.sqlite
+*.sqlite3
+
+# Environment Variables & Secrets
+.env
+.env.local
+.env.*.local
+
+# Session Logs & Work Artifacts
+ocsession.txt
+*.log
+
+# IDE & OS Artifacts
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~

@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://snrvq7jkapgf"]
+
+[ext_resource type="Script" uid="uid://c1evep60dyxhv" path="res://games/flappy_bird/scripts/game_over.gd" id="1_36epf"]
+[ext_resource type="Texture2D" uid="uid://c57fej47adq38" path="res://games/flappy_bird/assets/restart.png" id="2_e5ng7"]
+[ext_resource type="Texture2D" uid="uid://dcp3lb5s74baf" path="res://games/flappy_bird/assets/quit.png" id="3_nigbj"]
+[ext_resource type="Texture2D" uid="uid://b5wmqwi0oooec" path="res://games/flappy_bird/assets/leaderboard.jpeg" id="4_8iirx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tftqu"]
+texture = ExtResource("2_e5ng7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8hnhm"]
+texture = ExtResource("2_e5ng7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5q2wo"]
+texture = ExtResource("2_e5ng7")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nigbj"]
+atlas = ExtResource("3_nigbj")
+region = Rect2(45.4546, 23.4636, 3314.61, 1192.54)
+
+[node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_36epf")
+
+[node name="RestartButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -121.0
+offset_right = 76.0
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/hover = SubResource("StyleBoxTexture_tftqu")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8hnhm")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5q2wo")
+
+[node name="QuitButton" type="TextureButton" parent="."]
+offset_left = 556.0
+offset_top = 374.0
+offset_right = 716.0
+offset_bottom = 437.0
+texture_normal = SubResource("AtlasTexture_nigbj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="LeaderboardButton" type="TextureButton" parent="."]
+offset_left = 555.0
+offset_top = 309.0
+offset_right = 716.0
+offset_bottom = 368.0
+texture_normal = ExtResource("4_8iirx")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

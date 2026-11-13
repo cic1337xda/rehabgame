@@ -1,0 +1,419 @@
+[gd_scene load_steps=38 format=3 uid="uid://blj5g47uwo7m0"]
+
+[ext_resource type="Script" uid="uid://cry4d8nr3ldmc" path="res://games/flappy_bird/scripts/main.gd" id="1_5g6v2"]
+[ext_resource type="Texture2D" uid="uid://d38ceuoo614k4" path="res://games/flappy_bird/assets/bg.png" id="1_s2jh7"]
+[ext_resource type="PackedScene" uid="uid://cr3pl7yfk32tb" path="res://games/flappy_bird/scenes/pipe.tscn" id="2_h58j0"]
+[ext_resource type="PackedScene" uid="uid://b6xt1pam4caki" path="res://games/flappy_bird/scenes/bird.tscn" id="3_4ap2d"]
+[ext_resource type="PackedScene" uid="uid://d2ort7tfi33lg" path="res://games/flappy_bird/scenes/ground.tscn" id="4_kx1e6"]
+[ext_resource type="FontFile" uid="uid://c5mkhugdg4850" path="res://assets/fonts/PressStart2P-Regular.ttf" id="6_tipki"]
+[ext_resource type="PackedScene" uid="uid://snrvq7jkapgf" path="res://games/flappy_bird/scenes/game_over.tscn" id="6_yk7bg"]
+[ext_resource type="Texture2D" uid="uid://bnwe5cluox7tn" path="res://games/flappy_bird/assets/start.png" id="7_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://dcp3lb5s74baf" path="res://games/flappy_bird/assets/quit.png" id="9_x0cln"]
+[ext_resource type="Texture2D" uid="uid://dy8dxxcypntgj" path="res://games/flappy_bird/assets/slow.png" id="10_cqhdi"]
+[ext_resource type="Texture2D" uid="uid://cp3uuomf8i5cr" path="res://games/flappy_bird/assets/medium.png" id="11_n7ymv"]
+[ext_resource type="Texture2D" uid="uid://dl5fngglw6qtr" path="res://games/flappy_bird/assets/fast.png" id="12_vdl1m"]
+[ext_resource type="Texture2D" uid="uid://cefwl54d5vits" path="res://games/flappy_bird/assets/lock_extension.jpeg" id="13_inwir"]
+[ext_resource type="Texture2D" uid="uid://bonyu4hg0lw0w" path="res://games/flappy_bird/assets/lock_flexion.jpeg" id="14_1jk6t"]
+[ext_resource type="Texture2D" uid="uid://dxto8j2li8hri" path="res://games/flappy_bird/assets/start_exercise.jpeg" id="15_plw65"]
+[ext_resource type="Texture2D" uid="uid://dpox3pevqsgxs" path="res://games/flappy_bird/assets/start_exercise_disabled.jpeg" id="16_35gtf"]
+[ext_resource type="Texture2D" uid="uid://dobnwianimbry" path="res://games/flappy_bird/assets/back.jpeg" id="17_c4ltq"]
+[ext_resource type="Texture2D" uid="uid://c15hksotywhym" path="res://games/flappy_bird/assets/home.jpeg" id="18_1jk6t"]
+[ext_resource type="Texture2D" uid="uid://b5wmqwi0oooec" path="res://games/flappy_bird/assets/leaderboard.jpeg" id="19_plw65"]
+[ext_resource type="AudioStream" uid="uid://cu8mcyokqsqhc" path="res://games/flappy_bird/assets/flappy_bird_background.mp3" id="20_c4ltq"]
+[ext_resource type="AudioStream" uid="uid://dlg81revcatx" path="res://games/flappy_bird/assets/flappy_bird_wing.mp3" id="21_6kguc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0cln"]
+atlas = ExtResource("7_o6xl0")
+region = Rect2(44.7946, 27.7297, 3313.71, 1188.27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2sy3"]
+atlas = ExtResource("9_x0cln")
+region = Rect2(46.9648, 25.438, 3310.89, 1190.56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b04ao"]
+atlas = ExtResource("10_cqhdi")
+region = Rect2(22.609, 14.9792, 1659.56, 593.021)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3ln0"]
+atlas = ExtResource("11_n7ymv")
+region = Rect2(73.6105, 38.4738, 3295.3, 1177.53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_inwir"]
+atlas = ExtResource("12_vdl1m")
+region = Rect2(72.3319, 48.3855, 3294.27, 1167.61)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1jk6t"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tud3x"]
+bg_color = Color(1, 1, 1, 0.337255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oy44b"]
+bg_color = Color(1, 1, 1, 0.937255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_plw65"]
+bg_color = Color(0.6, 0.6, 0.6, 0.027451)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c4ltq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(1, 1, 1, 0.694118)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6kguc"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8fg15"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0s3m2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ong6s"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35gtf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_miqvi"]
+bg_color = Color(1, 1, 1, 0)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_5g6v2")
+pipe_scene = ExtResource("2_h58j0")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_s2jh7")
+expand_mode = 1
+
+[node name="Bird" parent="." instance=ExtResource("3_4ap2d")]
+
+[node name="Ground" parent="." instance=ExtResource("4_kx1e6")]
+z_index = 1
+position = Vector2(0, 640)
+scale = Vector2(1.5, 1)
+
+[node name="PipeTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="ScoreLabel" type="Label" parent="."]
+z_index = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -144.0
+offset_top = 35.0
+offset_right = 144.0
+offset_bottom = 93.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_tipki")
+theme_override_font_sizes/font_size = 36
+text = "SCORE: 0"
+horizontal_alignment = 1
+
+[node name="GameOver" parent="." instance=ExtResource("6_yk7bg")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="StartButton" type="TextureButton" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -75.0
+offset_right = 80.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("AtlasTexture_x0cln")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="QuitButton" type="TextureButton" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = 5.0
+offset_right = 80.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("AtlasTexture_f2sy3")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="LevelSelectionMenu" type="VBoxContainer" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="SlowButton" type="TextureButton" parent="UI/LevelSelectionMenu"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_b04ao")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="MediumButton" type="TextureButton" parent="UI/LevelSelectionMenu"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_y3ln0")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="FastButton" type="TextureButton" parent="UI/LevelSelectionMenu"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_inwir")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="CalibrationMenu" type="PanelContainer" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1jk6t")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/CalibrationMenu"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TitleLabel" type="Label" parent="UI/CalibrationMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_tipki")
+theme_override_font_sizes/font_size = 18
+text = "RANGE OF MOTION CALIBRATION"
+vertical_alignment = 1
+
+[node name="LiveAngleLabel" type="Label" parent="UI/CalibrationMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_tipki")
+theme_override_font_sizes/font_size = 14
+text = "Current Angle: 0.0°"
+horizontal_alignment = 1
+
+[node name="MinAngleLabel" type="Label" parent="UI/CalibrationMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_tipki")
+theme_override_font_sizes/font_size = 14
+text = "Extension Limit: Not Set"
+horizontal_alignment = 1
+
+[node name="MaxAngleLabel" type="Label" parent="UI/CalibrationMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_tipki")
+theme_override_font_sizes/font_size = 14
+text = "Flexion Limit: Not Set"
+horizontal_alignment = 1
+
+[node name="RangeProgressBar" type="ProgressBar" parent="UI/CalibrationMenu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_tipki")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/background = SubResource("StyleBoxFlat_tud3x")
+theme_override_styles/fill = SubResource("StyleBoxFlat_oy44b")
+
+[node name="LockStraightButton" type="TextureButton" parent="UI/CalibrationMenu/VBoxContainer"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+texture_normal = ExtResource("13_inwir")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="LockBentButton" type="TextureButton" parent="UI/CalibrationMenu/VBoxContainer"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+texture_normal = ExtResource("14_1jk6t")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="StartExerciseButton" type="TextureButton" parent="UI/CalibrationMenu/VBoxContainer"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("15_plw65")
+texture_disabled = ExtResource("16_35gtf")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="NavigationRow" type="HBoxContainer" parent="UI/CalibrationMenu/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="BackButton" type="TextureButton" parent="UI/CalibrationMenu/VBoxContainer/NavigationRow"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+texture_normal = ExtResource("17_c4ltq")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="HomeButton" type="TextureButton" parent="UI/CalibrationMenu/VBoxContainer/NavigationRow"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+texture_normal = ExtResource("18_1jk6t")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="PatientDialog" type="PanelContainer" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -194.0
+offset_top = -125.0
+offset_right = 197.0
+offset_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_plw65")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PatientDialog"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="LabelTitle" type="Label" parent="UI/PatientDialog/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_tipki")
+theme_override_font_sizes/font_size = 17
+text = "PATIENT REGISTRATION"
+horizontal_alignment = 1
+
+[node name="NameInput" type="LineEdit" parent="UI/PatientDialog/VBoxContainer"]
+custom_minimum_size = Vector2(240, 35)
+layout_mode = 2
+theme_override_colors/font_placeholder_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_tipki")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_c4ltq")
+placeholder_text = "Enter Patient Name..."
+alignment = 1
+
+[node name="StatusLabel" type="Label" parent="UI/PatientDialog/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.819608, 0.4, 1)
+horizontal_alignment = 1
+
+[node name="ConfirmButton" type="Button" parent="UI/PatientDialog/VBoxContainer"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_tipki")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6kguc")
+text = "Confirm"
+
+[node name="DuplicatePrompt" type="HBoxContainer" parent="UI/PatientDialog/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ContinueButton" type="Button" parent="UI/PatientDialog/VBoxContainer/DuplicatePrompt"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_8fg15")
+text = "Continue"
+
+[node name="RenameButton" type="Button" parent="UI/PatientDialog/VBoxContainer/DuplicatePrompt"]
+custom_minimum_size = Vector2(190, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_0s3m2")
+text = "Different Name"
+
+[node name="BackToMenuButton" type="Button" parent="UI/PatientDialog/VBoxContainer"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_tipki")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ong6s")
+text = "Back"
+
+[node name="LeaderboardMenu" type="PanelContainer" parent="UI"]
+custom_minimum_size = Vector2(400, 450)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -380.0
+offset_top = -225.0
+offset_right = 398.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_35gtf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/LeaderboardMenu"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="TitleLabel" type="Label" parent="UI/LeaderboardMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_tipki")
+text = "LEADERBOARD"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/LeaderboardMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RecordsList" type="VBoxContainer" parent="UI/LeaderboardMenu/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="CloseLeaderboardButton" type="Button" parent="UI/LeaderboardMenu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_tipki")
+theme_override_styles/normal = SubResource("StyleBoxFlat_miqvi")
+text = "Close"
+
+[node name="LeaderboardButton" type="TextureButton" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -280.0
+offset_top = 30.0
+offset_right = 13.0
+offset_bottom = 101.0
+grow_horizontal = 0
+texture_normal = ExtResource("19_plw65")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_c4ltq")
+volume_db = -6.0
+autoplay = true
+
+[node name="WingSFXPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_6kguc")
+
+[connection signal="hit" from="Ground" to="." method="_on_ground_hit"]
+[connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
+[connection signal="restart" from="GameOver" to="." method="_on_game_over_restart"]

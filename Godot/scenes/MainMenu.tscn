@@ -1,0 +1,70 @@
+[gd_scene load_steps=2 format=3 uid="uid://w8wf3b1hkvf1"]
+
+[sub_resource type="GDScript" id="GDScript_ukcvp"]
+script/source = "extends Control
+
+# Target scene file path for Flappy Bird exercise
+@export_file(\"*.tscn\") var flappy_bird_scene: String = \"res://scenes/main.tscn\"
+
+func _ready() -> void:
+	# Attach button signal listeners dynamically during initialization
+	$VBoxContainer/FlappyButton.pressed.connect(_on_flappy_button_pressed)
+	$VBoxContainer/Game2Button.pressed.connect(_on_game2_button_pressed)
+	$VBoxContainer/QuitButton.pressed.connect(_on_quit_button_pressed)
+
+	# Assign focus to initial interactive component
+	$VBoxContainer/FlappyButton.grab_focus()
+
+func _on_flappy_button_pressed() -> void:
+	# Transition active viewport tree to Flappy Bird scene
+	var error = get_tree().change_scene_to_file(flappy_bird_scene)
+	if error != OK:
+		printerr(\"Execution Error: Unable to navigate to specified scene path: \", flappy_bird_scene)
+
+func _on_game2_button_pressed() -> void:
+	# Placeholder trigger for future rehabilitative exercise modules
+	print(\"Notice: Secondary exercise game module is currently locked.\")
+
+func _on_quit_button_pressed() -> void:
+	# Terminate host application runtime instance
+	get_tree().quit()
+"
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_ukcvp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = -64.0
+offset_right = 117.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Rehab Games"
+
+[node name="FlappyButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "1. Flappy Bird (Knee Exercise)"
+
+[node name="Game2Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "2. Game 2 (Coming Soon)"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"

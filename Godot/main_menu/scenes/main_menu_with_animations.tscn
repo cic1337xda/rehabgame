@@ -1,0 +1,80 @@
+[gd_scene load_steps=13 format=3 uid="uid://dxs5vy1bqrx2u"]
+
+[ext_resource type="PackedScene" uid="uid://c6k5nnpbypshi" path="res://addons/maaacks_menus_template/base/nodes/menus/main_menu/main_menu.tscn" id="1_rr1rn"]
+[ext_resource type="Script" uid="uid://fqo2iaw45qcx" path="res://main_menu/scripts/main_menu_with_animations.gd" id="2_sr523"]
+[ext_resource type="PackedScene" uid="uid://c6fclggkmjh8o" path="res://scenes/windows/main_menu_options_window.tscn" id="3_ixa71"]
+[ext_resource type="PackedScene" uid="uid://cjah8ma816r6q" path="res://scenes/windows/main_menu_credits_window.tscn" id="4_2k5l7"]
+
+[sub_resource type="AnimationNodeAnimation" id="7"]
+animation = &"Intro"
+
+[sub_resource type="AnimationNodeAnimation" id="10"]
+animation = &"OpenMainMenu"
+
+[sub_resource type="AnimationNodeAnimation" id="13"]
+animation = &"OpenSubMenu"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="11"]
+advance_condition = &"intro_done"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="14"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j0orr"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_63dxc"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_vikuh"]
+states/End/position = Vector2(958, 123)
+states/Intro/node = SubResource("7")
+states/Intro/position = Vector2(259, 123)
+states/OpenMainMenu/node = SubResource("10")
+states/OpenMainMenu/position = Vector2(472, 123)
+states/OpenSubMenu/node = SubResource("13")
+states/OpenSubMenu/position = Vector2(734, 123)
+states/Start/position = Vector2(82, 123)
+transitions = ["Intro", "OpenMainMenu", SubResource("11"), "OpenMainMenu", "OpenSubMenu", SubResource("14"), "Start", "Intro", SubResource("AnimationNodeStateMachineTransition_j0orr"), "OpenSubMenu", "OpenMainMenu", SubResource("AnimationNodeStateMachineTransition_63dxc")]
+graph_offset = Vector2(-180.277, 49)
+
+[node name="MainMenu" instance=ExtResource("1_rr1rn")]
+script = ExtResource("2_sr523")
+options_packed_scene = ExtResource("3_ixa71")
+credits_packed_scene = ExtResource("4_2k5l7")
+
+[node name="MenuAnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+
+[node name="MenuAnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeStateMachine_vikuh")
+anim_player = NodePath("../MenuAnimationPlayer")
+parameters/conditions/intro_done = false
+
+[node name="TitleContainer" parent="MenuContainer/TitleMargin" index="0"]
+modulate = Color(1, 1, 1, 0)
+
+[node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" index="0"]
+text = "Rehab Games"
+
+[node name="SubTitleContainer" parent="MenuContainer/SubTitleMargin" index="0"]
+modulate = Color(1, 1, 1, 0)
+
+[node name="MenuButtonsContainer" parent="MenuContainer/MenuButtonsMargin" index="0"]
+modulate = Color(1, 1, 1, 0)
+
+[node name="MenuButtonsBoxContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer" index="0"]
+lock = true
+
+[node name="VersionContainer" parent="VersionMargin" index="0"]
+modulate = Color(1, 1, 1, 0)
+
+[node name="ExitConfirmation" parent="." index="7"]
+ignore_siblings = false
+
+[node name="MouseFilter" type="Control" parent="." index="8"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
